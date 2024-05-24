@@ -1,6 +1,34 @@
 import { getRandomInt } from "./utils";
 
-export const dummyAllSongList = [
+export interface songType {
+  name: string,
+  channelId: number,
+  channel: string,
+  src: string,
+  imageSrc: string
+}
+
+export interface playlistType {
+  id: number,
+  owner: string,
+  playlistName: string,
+  songList: songType[]
+}
+
+export interface dummyChannelType {
+  id: number,
+  subscribers: number,
+  name: string,
+  songList: songType[]
+  playlistArray: playlistType[]
+}
+
+export interface homeCategoryType {
+  label: string,
+  src: string
+}
+
+export const dummyAllSongList: songType[] = [
   {
     name: "Canopus",
     channelId: 1,
@@ -101,60 +129,60 @@ export const dummyAllSongList = [
   },
 ];
 
-export const getSongsBychannel = (channel) => {
-  return dummyAllSongList.filter((song) => song.channel === channel);
+export const getSongsByChannel = (channel: string): songType[] => {
+  return dummyAllSongList.filter((song: songType): boolean => song.channel === channel);
 };
 
 // playlist
-export const dummyPlaylistArray = [
+export const dummyPlaylistArray: playlistType[] = [
   {
     id: 1,
     owner: "50meru",
     playlistName: "50meru's playlist",
-    songList: getSongsBychannel("50meru"),
+    songList: getSongsByChannel("50meru"),
   },
   {
     id: 2,
     owner: "CattyBGM",
     playlistName: "CattyBGM's playlist",
-    songList: getSongsBychannel("CattyBGM"),
+    songList: getSongsByChannel("CattyBGM"),
   },
   {
     id: 3,
     owner: "ClearnEars",
     playlistName: "ClearnEars's playlist ears",
-    songList: getSongsBychannel("ClearnEars"),
+    songList: getSongsByChannel("ClearnEars"),
   },
   {
     id: 4,
     owner: "daldam music",
     playlistName: "daldam's playlist music",
-    songList: getSongsBychannel("daldam music"),
+    songList: getSongsByChannel("daldam music"),
   },
   {
     id: 5,
     owner: "도도",
     playlistName: "dodo's playlist music",
     songList: [
-      ...getSongsBychannel("CattyBGM"),
-      ...getSongsBychannel("ClearnEars"),
-      ...getSongsBychannel("daldam music"),
+      ...getSongsByChannel("CattyBGM"),
+      ...getSongsByChannel("ClearnEars"),
+      ...getSongsByChannel("daldam music"),
     ],
   },
 ];
 
-export const getAllPlaylist = async () => [...dummyPlaylistArray];
+export const getAllPlaylist = async (): Promise<playlistType[]> => [...dummyPlaylistArray];
 
-export const getPlaylistByOwner = (owner) => {
-  return dummyPlaylistArray.filter((playlist) => playlist.owner === owner);
+export const getPlaylistByOwner = (owner: string): playlistType[] => {
+  return dummyPlaylistArray.filter((playlist: playlistType): boolean => playlist.owner === owner);
 };
 
-export const getPlaylistById = async (id) => {
-  return dummyPlaylistArray.filter((playlist) => playlist.id === id)?.[0];
+export const getPlaylistById = async (id: number): Promise<playlistType> => {
+  return dummyPlaylistArray.filter((playlist: playlistType): boolean => playlist.id === id)?.[0];
 };
 
-export const getSongListTop10 = async () =>
-  dummyAllSongList.map((song, idx) => {
+export const getSongListTop10 = async (): Promise<songType[]> =>
+  dummyAllSongList.map((song: songType, idx: number) => {
     return {
       rank: idx,
       prevRank: idx + getRandomInt(-3, 3),
@@ -163,33 +191,33 @@ export const getSongListTop10 = async () =>
   });
 
 // channel
-export const dummyChannelList = [
+export const dummyChannelList: dummyChannelType[] = [
   {
     id: 1,
     subscribers: 4200,
     name: "50meru",
-    songList: getSongsBychannel("50meru"),
+    songList: getSongsByChannel("50meru"),
     playlistArray: getPlaylistByOwner("50meru"),
   },
   {
     id: 2,
     subscribers: 2900,
     name: "CattyBGM",
-    songList: getSongsBychannel("CattyBGM"),
+    songList: getSongsByChannel("CattyBGM"),
     playlistArray: getPlaylistByOwner("CattyBGM"),
   },
   {
     id: 3,
     subscribers: 3900,
     name: "daldam music",
-    songList: getSongsBychannel("daldam music"),
+    songList: getSongsByChannel("daldam music"),
     playlistArray: getPlaylistByOwner("daldam music"),
   },
   {
     id: 4,
     subscribers: 3900,
     name: "ClearnEars",
-    songList: getSongsBychannel("ClearnEars"),
+    songList: getSongsByChannel("ClearnEars"),
     playlistArray: getPlaylistByOwner("ClearnEars"),
   },
   {
@@ -197,8 +225,8 @@ export const dummyChannelList = [
     subscribers: 3900,
     name: "도도",
     songList: [
-      ...getSongsBychannel("50meru"),
-      ...getSongsBychannel("CattyBGM"),
+      ...getSongsByChannel("50meru"),
+      ...getSongsByChannel("CattyBGM"),
     ],
     playlistArray: [
       ...getPlaylistByOwner("50meru"),
@@ -207,12 +235,12 @@ export const dummyChannelList = [
   },
 ];
 
-export const getChannelById = async (id) => {
-  return dummyChannelList.filter((channel) => channel.id === id)?.[0];
+export const getChannelById = async (id: number): Promise<dummyChannelType> => {
+  return dummyChannelList.filter((channel: dummyChannelType): boolean => channel.id === id)?.[0];
 };
 
 // home - 카테고리
-export const homeCategoryList = [
+export const homeCategoryList: homeCategoryType[] = [
   {
     label: "운동",
     src: "https://images.unsplash.com/photo-1487956382158-bb926046304a",
@@ -257,7 +285,7 @@ export const homeCategoryList = [
 
 // 분위기 및 장르
 // Array.from(document.querySelectorAll("#items")[7].querySelectorAll("button")).map( el => el.textContent.replaceAll("\n","").trim())
-export const dymmyGenreList = [
+export const dummyGenreList: string[] = [
   "잠잘 때",
   "인디 & 얼터너티브",
   "계절 변화를 위한 테마",
