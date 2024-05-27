@@ -8,12 +8,7 @@ import { FaChromecast } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
 import Logo from "@/components/elements/Logo";
@@ -40,12 +35,12 @@ const HeaderDrawer = ({ children }: { children: React.ReactNode }) => {
 
 const Header = ({children}: { children: React.ReactNode }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const headRef: React.MutableRefObject<undefined> = useRef();
+  const headRef:React.MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollValue = headRef?.current?.scrollTop;
-      console.log(">scrollValue", scrollValue);
+      const scrollValue: number | undefined = headRef?.current?.scrollTop;
+
       setIsScrolled(scrollValue !== 0);
     };
 
