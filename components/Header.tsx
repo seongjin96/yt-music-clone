@@ -82,8 +82,8 @@ const Header = ({children}: { children: React.ReactNode }) => {
               </article>
             </HeaderDrawer>
             <article className="flex flex-row gap-6 items-center">
-              <UserIcon/>
               <FaChromecast size={26}/>
+              <UserIcon/>
             </article>
           </div>
         </PagePadding>
