@@ -1,7 +1,8 @@
 import Logo from "@/components/elements/Logo";
 import Navigator from "@/components/elements/Navigator";
+import React from "react";
 
-const Sidebar = ({ children }) => {
+const Sidebar = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex flex-row h-full">
       <nav className="w-[240px] border-r-[1px] border-neutral-600">
