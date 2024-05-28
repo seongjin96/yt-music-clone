@@ -1,10 +1,10 @@
 "use client"
 
 import {NextPage} from "next";
-import {playlistType} from "@/lib/dummyData";
 import { IoMdPlayCircle } from "react-icons/io";
+import {Playlist} from "@/types";
 
-const PlayListNav: NextPage<{playlist: playlistType}> = ({ playlist }) => {
+const PlayListNav: NextPage<{playlist: Playlist}> = ({ playlist }) => {
   const onClickPlay = () => {
     // TODO play music
   }

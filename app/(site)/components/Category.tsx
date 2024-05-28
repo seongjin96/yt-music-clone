@@ -1,14 +1,15 @@
 "use client";
 
 import useUIState from "@/hooks/useUIState";
-import {homeCategoryList, homeCategoryType} from "@/lib/dummyData";
+import {homeCategoryList} from "@/lib/dummyData";
 import {cn} from "@/lib/utils";
+import {HomeCategory} from "@/types";
 
 const Category = () => {
   // @ts-ignore
   const { homeCategory, setHomeCategory, setHeaderImageSrc } = useUIState();
 
-  const onClickCategory = (item: homeCategoryType) => {
+  const onClickCategory = (item: HomeCategory) => {
     if (homeCategory === item.label) {
       setHeaderImageSrc("")
       setHomeCategory("")
@@ -19,7 +20,7 @@ const Category = () => {
   }
   return (
     <ul className="max-w-full overflow-x-auto flex flex-row gap-4">
-      {homeCategoryList.map((item: homeCategoryType) => {
+      {homeCategoryList.map((item: HomeCategory) => {
         return (
           <li
             key={item.label}

@@ -6,8 +6,9 @@ import { FiPlus, FiMusic, FiCompass } from "react-icons/fi";
 import {GoHome} from "react-icons/go";
 import Link from "next/link";
 import {cn} from "@/lib/utils";
-import {dummyPlaylistArray, playlistType} from "@/lib/dummyData";
+import {dummyPlaylistArray} from "@/lib/dummyData";
 import PlayListNav from "@/components/elements/PlayListNav";
+import {Playlist} from "@/types";
 
 interface routeType {
   icon: React.JSX.Element;
@@ -71,7 +72,7 @@ const Navigator = () => {
       </section>
       <section>
         <ul className="flex flex-col">
-          {dummyPlaylistArray.map((playlist: playlistType) => {
+          {dummyPlaylistArray.map((playlist: Playlist) => {
             return <PlayListNav key={playlist.id} playlist={playlist}></PlayListNav>
           })}
         </ul>

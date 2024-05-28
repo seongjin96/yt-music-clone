@@ -1,34 +1,7 @@
 import { getRandomInt } from "./utils";
+import {Channel, HomeCategory, Playlist, Song} from "@/types";
 
-export interface songType {
-  name: string,
-  channelId: number,
-  channel: string,
-  src: string,
-  imageSrc: string
-}
-
-export interface playlistType {
-  id: number,
-  owner: string,
-  playlistName: string,
-  songList: songType[]
-}
-
-export interface dummyChannelType {
-  id: number,
-  subscribers: number,
-  name: string,
-  songList: songType[]
-  playlistArray: playlistType[]
-}
-
-export interface homeCategoryType {
-  label: string,
-  src: string
-}
-
-export const dummyAllSongList: songType[] = [
+export const dummyAllSongList: Song[] = [
   {
     name: "Canopus",
     channelId: 1,
@@ -129,12 +102,12 @@ export const dummyAllSongList: songType[] = [
   },
 ];
 
-export const getSongsByChannel = (channel: string): songType[] => {
-  return dummyAllSongList.filter((song: songType): boolean => song.channel === channel);
+export const getSongsByChannel = (channel: string): Song[] => {
+  return dummyAllSongList.filter((song: Song): boolean => song.channel === channel);
 };
 
 // playlist
-export const dummyPlaylistArray: playlistType[] = [
+export const dummyPlaylistArray: Playlist[] = [
   {
     id: 1,
     owner: "50meru",
@@ -171,18 +144,18 @@ export const dummyPlaylistArray: playlistType[] = [
   },
 ];
 
-export const getAllPlaylist = async (): Promise<playlistType[]> => [...dummyPlaylistArray];
+export const getAllPlaylist = async (): Promise<Playlist[]> => [...dummyPlaylistArray];
 
-export const getPlaylistByOwner = (owner: string): playlistType[] => {
-  return dummyPlaylistArray.filter((playlist: playlistType): boolean => playlist.owner === owner);
+export const getPlaylistByOwner = (owner: string): Playlist[] => {
+  return dummyPlaylistArray.filter((playlist: Playlist): boolean => playlist.owner === owner);
 };
 
-export const getPlaylistById = async (id: number): Promise<playlistType> => {
-  return dummyPlaylistArray.filter((playlist: playlistType): boolean => playlist.id === id)?.[0];
+export const getPlaylistById = async (id: number): Promise<Playlist> => {
+  return dummyPlaylistArray.filter((playlist: Playlist): boolean => playlist.id === id)?.[0];
 };
 
-export const getSongListTop10 = async (): Promise<songType[]> =>
-  dummyAllSongList.map((song: songType, idx: number) => {
+export const getSongListTop10 = async (): Promise<Song[]> =>
+  dummyAllSongList.map((song: Song, idx: number) => {
     return {
       rank: idx,
       prevRank: idx + getRandomInt(-3, 3),
@@ -191,7 +164,7 @@ export const getSongListTop10 = async (): Promise<songType[]> =>
   });
 
 // channel
-export const dummyChannelList: dummyChannelType[] = [
+export const dummyChannelList: Channel[] = [
   {
     id: 1,
     subscribers: 4200,
@@ -235,12 +208,12 @@ export const dummyChannelList: dummyChannelType[] = [
   },
 ];
 
-export const getChannelById = async (id: number): Promise<dummyChannelType> => {
-  return dummyChannelList.filter((channel: dummyChannelType): boolean => channel.id === id)?.[0];
+export const getChannelById = async (id: number): Promise<Channel> => {
+  return dummyChannelList.filter((channel: Channel): boolean => channel.id === id)?.[0];
 };
 
 // home - 카테고리
-export const homeCategoryList: homeCategoryType[] = [
+export const homeCategoryList: HomeCategory[] = [
   {
     label: "운동",
     src: "https://images.unsplash.com/photo-1487956382158-bb926046304a",
