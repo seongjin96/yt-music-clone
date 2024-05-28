@@ -13,7 +13,7 @@ export function getRandomInt(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export function getRandomElementFromArray(arr: any[]): number {
+export function getRandomElementFromArray(arr: any[]): any {
   const len: number = arr?.length;
   return arr[getRandomInt(0, len - 1)];
 }
