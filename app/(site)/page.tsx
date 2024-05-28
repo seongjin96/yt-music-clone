@@ -1,13 +1,15 @@
+import Category from "@/app/(site)/components/Category";
+import PagePadding from "@/components/PagePadding";
+
 const page = async () => {
   return (
-    <div className="min-h-[600px]">
-      {" "}
-      HomePage
-      <div className="h-[500px] bg-neutral-700">HomePage</div>
-      <div className="h-[500px] bg-neutral-700">HomePage</div>
-      <div className="h-[500px] bg-neutral-700">HomePage</div>
-      <div className="h-[500px] bg-neutral-700">HomePage</div>
-    </div>
+    <PagePadding>
+      <div className="min-h-[600px]">
+        <div className="mt-9"></div>
+        <Category/>
+        <div className="mt-12"></div>
+      </div>
+    </PagePadding>
   );
 };
 
