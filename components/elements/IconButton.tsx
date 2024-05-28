@@ -1,5 +1,4 @@
-import {RxHamburgerMenu} from "react-icons/rx";
-
+// @ts-ignore
 const IconButton = ({ icon, onClickIcon = () => {} }) => {
   return (
     <div
