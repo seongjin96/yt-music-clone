@@ -1,5 +1,5 @@
 import { getRandomInt } from "./utils";
-import {Channel, HomeCategory, Playlist, Song} from "@/types";
+import {Channel, HomeCategory, Playlist, Song, TopSong} from "@/types";
 
 export const dummyAllSongList: Song[] = [
   {
@@ -154,7 +154,7 @@ export const getPlaylistById = async (id: number): Promise<Playlist> => {
   return dummyPlaylistArray.filter((playlist: Playlist): boolean => playlist.id === id)?.[0];
 };
 
-export const getSongListTop10 = async (): Promise<Song[]> =>
+export const getSongListTop10 = async (): Promise<TopSong[]> =>
   dummyAllSongList.map((song: Song, idx: number) => {
     return {
       rank: idx,
