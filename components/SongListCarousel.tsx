@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/carousel"
 import PlayListCard from "@/components/PlayListCard";
 import {chunkArray} from "@/lib/utils";
+import SongCard from "@/components/SongCard";
 
 interface SongListCarouselProps {
   title: string;
@@ -21,7 +22,7 @@ const SongColumn = ({songList = []} : {songList: TopSong[]}) => {
   return (
     <div>
       {songList.map((song: TopSong, idx: number) => {
-        return <div></div>;
+        return <SongCard song={song}/>;
       })}
     </div>
   );
