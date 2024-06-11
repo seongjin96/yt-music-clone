@@ -31,7 +31,7 @@ const Category = () => {
                 item.label === homeCategory && "bg-white text-black hover:bg-white"
               )
             }>
-          {item.label}
+            {item.label}
           </li>);
       })}
     </ul>
