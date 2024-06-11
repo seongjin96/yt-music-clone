@@ -1,5 +1,12 @@
+import PagePadding from "@/components/PagePadding";
+import Category from "@/app/library/components/Category";
+
 const page = () => {
-  return <div>library</div>;
+  return (
+    <PagePadding>
+      <Category />
+    </PagePadding>
+  );
 }
 
 export default page;
