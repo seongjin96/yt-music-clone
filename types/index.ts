@@ -1,3 +1,5 @@
+import {IconType} from "react-icons";
+
 export interface Song {
   name: string,
   channelId: number,
@@ -29,4 +31,10 @@ export interface Channel {
 export interface HomeCategory {
   label: string,
   src: string
+}
+
+export interface PlayButtonProps {
+  Icon: IconType,
+  className: string,
+  label: string,
 }
