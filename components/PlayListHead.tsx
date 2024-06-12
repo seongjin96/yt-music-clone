@@ -11,7 +11,7 @@ const PlayListHead: React.FC<Playlist> = ({ owner, playlistName, songList }) => 
   const randomSong = getRandomElementFromArray(songList);
 
   return (
-    <section className="flex flex-col items-center gap-[50px] lg:flex-row">
+    <section className="flex gap-[50px] flex-row">
       <div className="relative h-[240px] w-[240px]">
         <Image alt="songImg" fill src={randomSong?.imageSrc}/>
       </div>

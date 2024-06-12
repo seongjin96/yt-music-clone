@@ -24,7 +24,12 @@ const page = async (props: PlaylistPageProps) => {
     <PagePadding>
       <HeaderBgChanger imageSrc={imageSrc}/>
       <div className="mt-12"></div>
-      <PlayListHead playlist={playlist}/>
+      <PlayListHead
+        id={playlist.id}
+        owner={playlist.owner}
+        playlistName={playlist.playlistName}
+        songList={playlist.songList}
+      />
     </PagePadding>
   );
 }
