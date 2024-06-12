@@ -4,9 +4,10 @@ import IconButton from "@/components/elements/IconButton";
 import {FiMoreVertical} from "react-icons/fi";
 import {getRandomElementFromArray} from "@/lib/utils";
 import Image from "next/image";
+import React from "react";
+import {Playlist} from "@/types";
 
-const PlayListHead = ({ playlist = {} } = {}) => {
-  const { playlistName, owner, songList} = playlist;
+const PlayListHead: React.FC<Playlist> = ({ owner, playlistName, songList }) => {
   const randomSong = getRandomElementFromArray(songList);
 
   return (
