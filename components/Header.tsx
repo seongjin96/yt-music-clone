@@ -42,15 +42,16 @@ const Header = ({children}: { children: React.ReactNode }) => {
   const headRef:React.MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const currentHeadRef = headRef.current;
     const handleScroll = () => {
       const scrollValue: number | undefined = headRef?.current?.scrollTop;
 
       setIsScrolled(scrollValue !== 0);
     };
 
-    headRef?.current?.addEventListener("scroll", handleScroll);
+    currentHeadRef?.addEventListener("scroll", handleScroll);
     return () => {
-      headRef?.current?.removeEventListener("scroll", handleScroll);
+      currentHeadRef?.removeEventListener("scroll", handleScroll);
     }
   }, []);
 
