@@ -12,7 +12,7 @@ const DarkButton: React.FC<PlayButtonProps> = ({ Icon, label, className, ...prop
     )}
          {...props}
     >
-      <span><Icon /></span>
+      <span>{Icon}</span>
       <span>{label}</span>
     </div>
   );

@@ -27,12 +27,12 @@ const PlayListHead: React.FC<Playlist> = ({ owner, playlistName, songList }) => 
           <ul className="hidden lg:flex flex-row gap-4 mt-4">
             <WhiteButton
               className={"w-[85px] text-[14px]"}
-              Icon={FiPlay}
+              Icon={<FiPlay />}
               label="재생"
             />
             <DarkButton
               className={"w-[150px] text-[14px]"}
-              Icon={FiFolderPlus}
+              Icon={<FiFolderPlus />}
               label="보관함에 저장"
             />
             <IconButton icon={<FiMoreVertical size={24}/>}/>
@@ -42,12 +42,12 @@ const PlayListHead: React.FC<Playlist> = ({ owner, playlistName, songList }) => 
       <ul className="flex flex-row gap-4 mt-4 lg:hidden">
         <WhiteButton
           className={"w-[85px] text-[14px]"}
-          Icon={FiPlay}
+          Icon={<FiPlay />}
           label="재생"
         />
         <DarkButton
           className={"w-[150px] text-[14px]"}
-          Icon={FiFolderPlus}
+          Icon={<FiFolderPlus />}
           label="보관함에 저장"
         />
         <IconButton icon={<FiMoreVertical size={24}/>}/>

@@ -7,12 +7,12 @@ import React from "react";
 const WhiteButton: React.FC<PlayButtonProps> = ({ Icon, label, className, ...props }) => {
   return (
     <div className={cn(
-  "cursor-pointer bg-white hover:bg-neutral-200 text-black rounded-2xl flex flex-row items-center min-w-[80px] h-[36px] p-4 gap-2",
-        className
-      )}
-      {...props}
+      "cursor-pointer bg-white hover:bg-neutral-200 text-black rounded-2xl flex flex-row items-center min-w-[80px] h-[36px] p-4 gap-2",
+      className
+    )}
+         {...props}
     >
-      <span><Icon /></span>
+      <span>{Icon}</span>
       <span>{label}</span>
     </div>
   );

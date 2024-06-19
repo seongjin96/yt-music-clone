@@ -1,4 +1,5 @@
 import {IconType} from "react-icons";
+import React from "react";
 
 export interface Song {
   name: string,
@@ -34,7 +35,7 @@ export interface HomeCategory {
 }
 
 export interface PlayButtonProps {
-  Icon: IconType,
-  className: string,
+  Icon?: React.ReactElement<IconType>,
+  className?: string,
   label: string,
 }
