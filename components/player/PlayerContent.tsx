@@ -1,6 +1,12 @@
+import { PlayerSlider } from '@/components/ui/playerSlider'
+
 const PlayerContent = () => {
   return (
-    <div>PlayerContent</div>
+    <div className="h-full w-full relative">
+      <div className="absolute top-[-16px] w-full">
+        <PlayerSlider />
+      </div>
+    </div>
   );
 }
 
