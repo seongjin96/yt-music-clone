@@ -1,5 +1,6 @@
 import {create} from "zustand";
 import {Song} from "@/types";
+import {dummyAllSongList} from "@/lib/dummyData";
 
 interface PlayerState {
   isVisiblePlayer: boolean;
@@ -16,7 +17,7 @@ interface PlayerState {
 const usePlayerState = create<PlayerState>((set) => ({
   isVisiblePlayer: true,
   setIsVisiblePlayer: (isVisiblePlayer: boolean) => set({ isVisiblePlayer }),
-  activeSong: null,
+  activeSong: dummyAllSongList[0],
   prevPlayerQueue: [],
   nextPlayerQueue: [],
   addSongList: (songList: Song[]) =>
