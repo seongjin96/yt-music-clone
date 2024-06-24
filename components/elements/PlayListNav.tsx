@@ -3,10 +3,12 @@
 import {NextPage} from "next";
 import { IoMdPlayCircle } from "react-icons/io";
 import {Playlist} from "@/types";
+import usePlayerState from "@/hooks/usePlayerState";
 
 const PlayListNav: NextPage<{playlist: Playlist}> = ({ playlist }) => {
+  const { addSongList } = usePlayerState();
   const onClickPlay = () => {
-    // TODO play music
+    addSongList(playlist.songList);
   }
 
   return (

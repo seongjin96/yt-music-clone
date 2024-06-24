@@ -9,6 +9,7 @@ import {FiMusic, FiShuffle} from "react-icons/fi";
 import WhiteButton from "@/components/elements/WhiteButton";
 import SongCardRowExpand from "@/components/SongCardRowExpand";
 import PlayListCarousel from "@/components/PlayListCarousel";
+import ChannelHead from "@/app/channel/components/ChannelHead";
 
 interface ChannelPageProps {
   params: {
@@ -27,41 +28,7 @@ const page = async (props: ChannelPageProps) => {
     <PagePadding>
       <HeaderBgChanger imageSrc={imageSrc}/>
       <div className="mt-[150px]"></div>
-      <section>
-        <div className="text-[28px] font-bold">{channel.name}</div>
-        <article className="mt-4 lg:hidden">
-          <div>
-            <DarkButton
-              className={"w-[230px] flex justify-center"}
-              label={"구독중 4.18만"}
-            />
-          </div>
-          <div className="flex flex-row gap-4 mt-4">
-            <WhiteButton
-              label={"셔플"}
-              Icon={<FiShuffle size={16}/>}
-            />
-            <WhiteButton
-              label={"뮤직 스테이션"}
-              Icon={<FiMusic size={16}/>}
-            />
-          </div>
-        </article>
-        <div className="hidden lg:flex flex-row items-center gap-4 text-[14px] mt-4">
-          <WhiteButton
-            label={"셔플"}
-            Icon={<FiShuffle size={16}/>}
-          />
-          <WhiteButton
-            label={"뮤직 스테이션"}
-            Icon={<FiMusic size={16}/>}
-          />
-          <DarkButton
-            className={"w-[230px] flex justify-center"}
-            label={"구독중 4.18만"}
-          />
-        </div>
-      </section>
+      <ChannelHead channel={channel}/>
       <section className="mt-[80px]">
         <div className="text-[28px] font-bold">노래</div>
         <div className="mt-20px">

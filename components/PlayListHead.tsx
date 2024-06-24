@@ -8,9 +8,15 @@ import React from "react";
 import {Playlist} from "@/types";
 import WhiteButton from "@/components/elements/WhiteButton";
 import DarkButton from "@/components/elements/DarkButton";
+import usePlayerState from "@/hooks/usePlayerState";
 
 const PlayListHead: React.FC<Playlist> = ({ owner, playlistName, songList }) => {
   const randomSong = getRandomElementFromArray(songList);
+  const { addSongList } = usePlayerState();
+
+  const onClickPlaylist = () => {
+    addSongList(songList);
+  }
 
   return (
     <section>
@@ -29,6 +35,7 @@ const PlayListHead: React.FC<Playlist> = ({ owner, playlistName, songList }) => 
               className={"w-[85px] text-[14px]"}
               Icon={<FiPlay />}
               label="재생"
+              onClick = {onClickPlaylist}
             />
             <DarkButton
               className={"w-[150px] text-[14px]"}
@@ -44,6 +51,7 @@ const PlayListHead: React.FC<Playlist> = ({ owner, playlistName, songList }) => 
           className={"w-[85px] text-[14px]"}
           Icon={<FiPlay />}
           label="재생"
+          onClick = {onClickPlaylist}
         />
         <DarkButton
           className={"w-[150px] text-[14px]"}

@@ -38,4 +38,5 @@ export interface PlayButtonProps {
   Icon?: React.ReactElement<IconType>,
   className?: string,
   label: string,
+  onClick?: () => void,
 }

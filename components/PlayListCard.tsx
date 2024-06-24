@@ -7,8 +7,10 @@ import {Playlist} from "@/types";
 import {MdMoreVert} from "react-icons/md";
 import {FiPlay} from "react-icons/fi";
 import IconButton from "@/components/elements/IconButton";
+import usePlayerState from "@/hooks/usePlayerState";
 
 const PlayListCard = ({ playlist }: {playlist: Playlist}) => {
+  const { addSongList } = usePlayerState();
   const { push } = useRouter();
   const { id, owner = "", playlistName = "", songList = [] }: Playlist = playlist ?? {};
 
@@ -19,8 +21,9 @@ const PlayListCard = ({ playlist }: {playlist: Playlist}) => {
     if (id) push(`/playlist?list=${id}`);
   }
 
-  const onClickPlay = () => {
-    // TODO play
+  const onClickPlay = (e: { stopPropagation: () => void; }) => {
+    e.stopPropagation();
+    addSongList(songList);
   }
 
   return (
