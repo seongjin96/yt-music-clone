@@ -11,7 +11,7 @@ const HeaderBgChanger = ({ imageSrc }: { imageSrc: string }) => {
     if (imageSrc) setHeaderImageSrc(imageSrc);
   }, [imageSrc])
 
-  return;
+  return <div></div>;
 }
 
 export default HeaderBgChanger;
